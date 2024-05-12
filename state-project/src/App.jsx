@@ -5,34 +5,55 @@ class App extends Component {
   constructor() {
     super();
 
+    // this.state = {
+    //   count: 0,
+    // };
+
     this.state = {
-      count: 0,
+      name: "",
+      surname: "",
     };
   }
   render() {
-    const plus = () => {
-      console.log("plus");
-      this.setState({
-        count: this.state.count + 1,
-      });
-    };
+    // const onPlus = () => {
+    //   this.setState({
+    //     count: this.state.count + 1,
+    //   });
+    // };
 
-    const minus = () => {
-      console.log("minus");
-      if (this.state.count > 0)
-        this.setState({
-          count: this.state.count - 1,
-        });
-    };
+    // const onMinus = () => {
+    //   if (this.state.count > 0)
+    //     this.setState({
+    //       count: this.state.count - 1,
+    //     });
+    // };
     return (
       <div className="box">
-        <button className="plus" onClick={plus}>
-          Plus
-        </button>
-        <h1>{this.state.count}</h1>
-        <button className="minus" onClick={minus}>
-          Minus
-        </button>
+        {/* <button onClick={onPlus}>Plus</button>
+        {this.state.count}
+        <button onClick={onMinus}>Minus</button> */}
+        <input
+          onChange={(event) => {
+            console.log(event.target.value);
+            this.setState({
+              name: event.target.value,
+            });
+          }}
+          type="text"
+          placeholder="Name"
+        />
+        <input
+          onChange={(event) => {
+            console.log(event.target.value);
+            this.setState({
+              surname: event.target.value,
+            });
+          }}
+          type="text"
+          placeholder="SurName"
+        />
+        <h1>Name: {this.state.name}</h1>
+        <h1>Surname: {this.state.surname}</h1>
       </div>
     );
   }
